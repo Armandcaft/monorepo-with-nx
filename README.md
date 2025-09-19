@@ -30,21 +30,25 @@ npx --ignore-existing create-nx-workspace my-workspace --preset=empty
 # Alternatively (if you already have a workspace):
 npx nx@latest init --ignore-scripts
 ```
+Say your workspace name is fullstackapp.
 
 ---
 
 ## 🌐 Step 3 — Angular Frontend App Setup
 
 ```bash
+# Accessing workspace folder
+cd fullstackname
+
 # Install Angular plugin
 npm install -D @nx/angular
 
-# Generate Angular app in apps/client
-npx nx g @nx/angular:app client
+# Generate Angular app in apps/frontend/client
+npx nx g @nx/angular:app apps/frontend/client
 
 # (Optional) Generate Angular libraries
-npx nx g @nx/angular:lib ui --directory=shared
-npx nx g @nx/angular:lib auth --directory=features
+npx nx g @nx/angular:lib libs/shared/ui
+npx nx g @nx/angular:lib libs/features/auth
 
 # Serve the Angular app
 nx serve client
@@ -82,7 +86,7 @@ yarn add -D @nx-dotnet/core
 nx g @nx-dotnet/core:init
 
 # Generate a .NET Web API app
-nx g @nx-dotnet/core:app api --framework webapi
+nx g @nx-dotnet/core:app apps/backend/api --framework webapi
 ```
 
 ---
